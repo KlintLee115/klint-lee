@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Professional web development for small businesses. Custom websites starting at $150 setup + $25/month. Modern, mobile-ready, and SEO optimized.">
+    <meta name="keywords"
+        content="web developer, small business website, affordable web design, custom web development">
+    <title>Klint Lee | Web Solutions</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #fff;
+            padding: 80px 0;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-trust {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin: 0 auto 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+            color: var(--text);
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .referral-badge {
+            background: #dcfce7;
+            color: #166534;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        footer p {
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        .email-link {
+            color: #60a5fa;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .email-link:hover {
+            color: #93c5fd;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: start;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .about-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background: #e0e7ff;
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .skill-tag-secondary {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 5px 12px;
+            font-size: 0.85rem;
+        }
+
+        .tech-ux-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tech-step-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+
+        .tech-step-title {
+            font-size: 0.84rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #1e3a8a;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .tech-step-copy {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .foundation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .foundation-card {
+            background: #fff;
+            border: 1px solid #dbeafe;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: left;
+        }
+
+        .foundation-card h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .foundation-card p {
+            color: #64748b;
+            font-size: 0.88rem;
+            line-height: 1.45;
+        }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 10px;
+        }
+
+        .compare-col {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .compare-col h4 {
+            color: var(--dark);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .compare-col p {
+            color: #64748b;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            margin-bottom: 6px;
+        }
+
+        .compare-col p:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .experience-item strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .experience-item span {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .benefit p {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .header-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        .recent-wins {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .header-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .header-text {
+                text-align: center;
+            }
+
+            .recent-wins {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .price {
+                font-size: 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .about-photo {
+                margin: 0 auto;
+            }
+
+            .tech-step-card {
+                padding: 16px;
+            }
+
+            .compare-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="about">
+        <div class="container">
+            <div class="header-content">
+                <img src="photo.jpeg" alt="Klint Lee" class="header-photo">
+                <div class="header-text">
+                    <h1 style="margin-bottom: 8px;">Klint Lee</h1>
+                    <p class="subtitle" style="margin-bottom: 12px;">Software Developer specializing in fast, modern websites for small businesses. Direct communication, no middleman.</p>
+                    
+                    <div style="font-size: 0.9rem; color: #64748b; margin-bottom: 5px;">
+                        📍 Calgary, AB • 🎓 SAIT Software Development Graduate (3.8 GPA)
+                    </div>
+
+                    <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">
+                        📧 <a href="mailto:klintlee1@gmail.com" style="color: var(--primary); text-decoration: none;">klintlee1@gmail.com</a> • 
+                        💼 <a href="https://linkedin.com/in/klintlee" style="color: var(--primary); text-decoration: none;">LinkedIn</a>
+                    </div>
+
+                    <div class="recent-wins">
+                        <div style="font-size: 0.8rem; font-weight: 600; color: var(--primary); margin-bottom: 5px;">🚀 RECENT WINS</div>
+                        <div style="font-size: 0.85rem; color: #64748b; line-height: 1.4;">
+                            • Automated 1,000+ updates across 26 microservices at <strong>BASSnet</strong><br>
+                            • Improved operational efficiency by 20% at <strong>Empowered Futures</strong><br>
+                            • Implemented an events and bookings management system at <strong>Rise Sports</strong><br>
+                            • Built a fun multiplayer Tetris game at <a href="https://reversed-tetris.com" style="color: var(--primary); text-decoration: none;">Reversed Tetris</a>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+                        <a href="#pricing" class="btn btn-primary">See Pricing</a>
+                        <a href="#contact" class="btn" style="background: #f1f5f9; color: var(--text); border: 1px solid #e2e8f0;">Get in Touch</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="comparison"
+            style="background: #fff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+            <div class="container">
+                <h2 style="margin-bottom: 10px;">High Quality Doesn't Mean High Cost</h2>
+
+                <div class="compare-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+
+                    <div class="compare-col" style="border: 1px solid #fee2e2; background: #fffafb; padding: 30px;">
+                        <h4 style="color: #991b1b; font-size: 1.2rem; margin-bottom: 20px;">Typical Agencies & DIY</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li
+                                style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem;">
+                                <span style="color: #ef4444;">✕</span>
+                                <span><strong>High Overhead:</strong> You pay for their office rent, project managers,
+                                    and sales teams.</span>
+                            </li>
+                            <li
+                                style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem;">
+                                <span style="color: #ef4444;">✕</span>
+                                <span><strong>"Bloated" Builders:</strong> WordPress or Wix sites are often slow, bulky,
+                                    and prone to breaking during updates.</span>
+                            </li>
+                            <li
+                                style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem;">
+                                <span style="color: #ef4444;">✕</span>
+                                <span><strong>Hidden Fees:</strong> Premium plugins, theme licenses, and extra charges
+                                    for every "tweak."</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="compare-col"
+                        style="border: 2px solid var(--primary); background: #f0f7ff; padding: 30px; transform: scale(1.02);">
+                        <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 20px;">The Klint Lee
+                            Advantage</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li
+                                style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem;">
+                                <span style="color: #10b981; font-weight: bold;">✓</span>
+                                <span><strong>Zero Bloat:</strong> Hand-coded for speed. Your site loads instantly on
+                                    mobile, which Google loves.</span>
+                            </li>
+                            <li
+                                style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem;">
+                                <span style="color: #10b981; font-weight: bold;">✓</span>
+                                <span><strong>Solo Directness:</strong> You talk to the guy writing the code. No "lost
+                                    in translation" with a middleman.</span>
+                            </li>
+                            <li
+                                style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem;">
+                                <span style="color: #10b981; font-weight: bold;">✓</span>
+                                <span><strong>Lean Hosting:</strong> I use AWS S3/CloudFront. It’s enterprise-grade
+                                    reliability for a fraction of the cost.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing">
+            <div class="container">
+                <h2 style="font-size: 2.8rem;">Fair & Transparent Pricing</h2>
+                <div class="pricing-grid">
+                    <div class="card featured">
+                        <span class="referral-badge">Refer a client → Pay only $20/month!</span>
+                        <h3>Complete Web Package</h3>
+                        <div class="price">$125<span> setup</span> + $25<span>/mo</span></div>
+                        <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 20px;">Design, launch, and ongoing
+                            support in one package. <strong>High-quality websites at a fraction of typical agency
+                                costs.</strong></p>
+                        <ul>
+                            <li>Custom Design (No generic templates)</li>
+                            <li>Mobile & Tablet Friendly</li>
+                            <li>SEO Optimized for Local Search</li>
+                            <li>Fast Loading Speeds</li>
+                            <li>Secure Managed Hosting</li>
+                            <li>Unlimited Minor Content Updates</li>
+                            <li>Regular Backups & Security</li>
+                        </ul>
+                        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 20px;"><strong>Referral
+                                Discount:</strong> Refer one client and your monthly rate drops to $20.</p>
+                        <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Get
+                            Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center;">
+            <div class="container">
+                <h2>What About Custom Features?</h2>
+                <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.05rem; color: #64748b;">I can add forms,
+                    galleries, and basic booking calendars. I keep projects straightforward, and I’ll be upfront if your
+                    scope needs a full team.</p>
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <p>"Good results driven by sound premises."</p>
+            <p>Ready to get your business online?</p>
+            <div style="margin-bottom: 16px;">
+                <a href="mailto:klintlee1@gmail.com" class="email-link">klintlee1@gmail.com</a>
+                <span style="opacity: 0.5; margin: 0 8px;">•</span>
+                <a href="tel:4034661009" class="email-link" style="font-size: 1.1rem;">403-466-1009</a>
+            </div>
+            <div style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">
+                &copy; 2026 Klint Lee | Calgary, AB
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll reveal or interactive elements can go here
+        console.log("Portfolio loaded. Quality and simplicity.");
+    </script>
+</body>
+
+</html>
